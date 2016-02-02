@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MarketingV2Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="MarketingV2ModelStoreContainer">
+    <EntitySet Name="Masterlist" EntityType="MarketingV2Model.Store.Masterlist" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="MarketingV2Model.Store.Users" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="Masterlist">
+    <Key>
+      <PropertyRef Name="MasterID" />
+    </Key>
+    <Property Name="MasterID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LoginName" Type="varchar" MaxLength="100" />
+    <Property Name="FirstName" Type="varchar" MaxLength="100" />
+    <Property Name="MiddleName" Type="varchar" MaxLength="100" />
+    <Property Name="LastName" Type="varchar" MaxLength="100" />
+    <Property Name="Suffix" Type="varchar" MaxLength="100" />
+    <Property Name="Email1" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="Email2" Type="varchar" MaxLength="200" />
+    <Property Name="Email3" Type="varchar" MaxLength="200" />
+    <Property Name="Company" Type="varchar" MaxLength="200" />
+    <Property Name="Department" Type="varchar" MaxLength="200" />
+    <Property Name="JobTitle" Type="varchar" MaxLength="200" />
+    <Property Name="BusinessStreet" Type="varchar" MaxLength="500" />
+    <Property Name="BusinessStreet2" Type="varchar" MaxLength="500" />
+    <Property Name="BusinessStreet3" Type="varchar" MaxLength="200" />
+    <Property Name="BusinessCity" Type="varchar" MaxLength="50" />
+    <Property Name="BusinessState" Type="varchar" MaxLength="50" />
+    <Property Name="BusinessPostalCode" Type="varchar" MaxLength="50" />
+    <Property Name="BusinessCountry" Type="varchar" MaxLength="50" />
+    <Property Name="HomeStreet" Type="varchar" MaxLength="500" />
+    <Property Name="HomeStreet2" Type="varchar" MaxLength="500" />
+    <Property Name="HomeStreet3" Type="varchar" MaxLength="200" />
+    <Property Name="HomeCity" Type="varchar" MaxLength="50" />
+    <Property Name="HomeState" Type="varchar" MaxLength="50" />
+    <Property Name="HomePostalCode" Type="varchar" MaxLength="50" />
+    <Property Name="HomeCountry" Type="varchar" MaxLength="50" />
+    <Property Name="OtherStreet" Type="varchar" MaxLength="500" />
+    <Property Name="OtherStreet2" Type="varchar" MaxLength="500" />
+    <Property Name="OtherStreet3" Type="varchar" MaxLength="200" />
+    <Property Name="OtherCity" Type="varchar" MaxLength="50" />
+    <Property Name="OtherState" Type="varchar" MaxLength="50" />
+    <Property Name="OtherPostalCode" Type="varchar" MaxLength="50" />
+    <Property Name="OtherCountry" Type="varchar" MaxLength="50" />
+    <Property Name="AssistantPhone" Type="varchar" MaxLength="50" />
+    <Property Name="BusinessFax" Type="varchar" MaxLength="50" />
+    <Property Name="BusinessPhone" Type="varchar" MaxLength="50" />
+    <Property Name="BusinessPhone2" Type="varchar" MaxLength="50" />
+    <Property Name="CallBack" Type="varchar" MaxLength="50" />
+    <Property Name="CarPhone" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyMainPhone" Type="varchar" MaxLength="50" />
+    <Property Name="HomeFax" Type="varchar" MaxLength="50" />
+    <Property Name="HomePhone" Type="varchar" MaxLength="50" />
+    <Property Name="HomePhone2" Type="varchar" MaxLength="50" />
+    <Property Name="ISDN" Type="varchar" MaxLength="50" />
+    <Property Name="MobilePhone" Type="varchar" MaxLength="50" />
+    <Property Name="OtherFax" Type="varchar" MaxLength="50" />
+    <Property Name="OtherPhone" Type="varchar" MaxLength="50" />
+    <Property Name="Pager" Type="varchar" MaxLength="50" />
+    <Property Name="PrimaryPhone" Type="varchar" MaxLength="50" />
+    <Property Name="RadioPhone" Type="varchar" MaxLength="50" />
+    <Property Name="TTYTTDPhone" Type="varchar" MaxLength="50" />
+    <Property Name="Telex" Type="varchar" MaxLength="50" />
+    <Property Name="AssistantName" Type="varchar" MaxLength="200" />
+    <Property Name="BirthDate" Type="varchar" MaxLength="50" />
+    <Property Name="ManagerName" Type="varchar" MaxLength="200" />
+    <Property Name="Notes" Type="varchar" MaxLength="200" />
+    <Property Name="OtherAddressPOBox" Type="varchar" MaxLength="200" />
+    <Property Name="Spouse" Type="varchar" MaxLength="200" />
+    <Property Name="Webpage" Type="varchar" MaxLength="500" />
+    <Property Name="PersonalWebpage" Type="varchar" MaxLength="500" />
+    <Property Name="ImportedSource" Type="varchar" MaxLength="200" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="Url" Type="varchar(max)" />
+    <Property Name="Location" Type="varchar" MaxLength="255" />
+    <Property Name="CurrentJob" Type="varchar" MaxLength="255" />
+    <Property Name="Posted" Type="datetime" />
+    <Property Name="SearchString" Type="varchar" MaxLength="255" />
+    <Property Name="LinkedInStatus" Type="varchar" MaxLength="100" />
+    <Property Name="LinkedInIndustryType" Type="varchar" MaxLength="255" />
+    <Property Name="IsSentToAccountMgr" Type="bit" />
+    <Property Name="url2" Type="varchar(max)" />
+    <Property Name="url3" Type="varchar(max)" />
+    <Property Name="phone2" Type="varchar" MaxLength="50" />
+    <Property Name="phone3" Type="varchar" MaxLength="50" />
+    <Property Name="SearchedDate" Type="datetime" />
+    <Property Name="FileID" Type="int" />
+    <Property Name="sentToprocessFileDate" Type="datetime" />
+    <Property Name="sentToAcMgrFileDate" Type="datetime" />
+    <Property Name="statusid" Type="int" />
+    <Property Name="comment" Type="varchar(max)" />
+    <Property Name="UserId" Type="int" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="varchar" MaxLength="40" />
+    <Property Name="FirstName" Type="varchar" MaxLength="40" />
+    <Property Name="LastName" Type="varchar" MaxLength="40" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MarketingV2Model" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="MarketingEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Users" EntityType="MarketingV2Model.User" />
+    <EntitySet Name="Masterlists" EntityType="MarketingV2Model.Masterlist" />
+  </EntityContainer>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="FirstName" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="LastName" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Type="String" Name="password" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Masterlist">
+    <Key>
+      <PropertyRef Name="MasterID" />
+    </Key>
+    <Property Type="Int32" Name="MasterID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="LoginName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="FirstName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="MiddleName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LastName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Suffix" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Email1" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Email2" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Email3" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Company" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Department" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="JobTitle" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BusinessStreet" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BusinessStreet2" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BusinessStreet3" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BusinessCity" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BusinessState" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BusinessPostalCode" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BusinessCountry" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="HomeStreet" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="HomeStreet2" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="HomeStreet3" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="HomeCity" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="HomeState" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="HomePostalCode" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="HomeCountry" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="OtherStreet" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="OtherStreet2" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="OtherStreet3" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="OtherCity" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="OtherState" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="OtherPostalCode" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="OtherCountry" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="AssistantPhone" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BusinessFax" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BusinessPhone" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BusinessPhone2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CallBack" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CarPhone" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CompanyMainPhone" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="HomeFax" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="HomePhone" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="HomePhone2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ISDN" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="MobilePhone" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="OtherFax" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="OtherPhone" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Pager" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PrimaryPhone" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="RadioPhone" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="TTYTTDPhone" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Telex" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="AssistantName" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BirthDate" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ManagerName" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Notes" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="OtherAddressPOBox" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Spouse" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Webpage" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PersonalWebpage" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ImportedSource" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CreateDate" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="UpdateDate" Nullable="false" Precision="3" />
+    <Property Type="String" Name="Url" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Location" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CurrentJob" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="Posted" Precision="3" />
+    <Property Type="String" Name="SearchString" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LinkedInStatus" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LinkedInIndustryType" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="IsSentToAccountMgr" />
+    <Property Type="String" Name="url2" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="url3" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="phone2" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="phone3" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="SearchedDate" Precision="3" />
+    <Property Type="Int32" Name="FileID" />
+    <Property Type="DateTime" Name="sentToprocessFileDate" Precision="3" />
+    <Property Type="DateTime" Name="sentToAcMgrFileDate" Precision="3" />
+    <Property Type="Int32" Name="statusid" />
+    <Property Type="String" Name="comment" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="UserId" />
+  </EntityType>
+</Schema>

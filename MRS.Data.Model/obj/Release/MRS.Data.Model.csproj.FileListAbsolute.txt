@@ -1,0 +1,10 @@
+C:\Users\RiyazPC\Documents\visual studio 2012\Projects\MarketingReportingSystem\MRS.Data.Model\bin\Release\MRS.Data.Model.dll.config
+C:\Users\RiyazPC\Documents\visual studio 2012\Projects\MarketingReportingSystem\MRS.Data.Model\bin\Release\MRS.Data.Model.dll
+C:\Users\RiyazPC\Documents\visual studio 2012\Projects\MarketingReportingSystem\MRS.Data.Model\bin\Release\MRS.Data.Model.pdb
+C:\Users\RiyazPC\Documents\visual studio 2012\Projects\MarketingReportingSystem\MRS.Data.Model\bin\Release\EntityFramework.dll
+C:\Users\RiyazPC\Documents\visual studio 2012\Projects\MarketingReportingSystem\MRS.Data.Model\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\RiyazPC\Documents\visual studio 2012\Projects\MarketingReportingSystem\MRS.Data.Model\bin\Release\EntityFramework.xml
+C:\Users\RiyazPC\Documents\visual studio 2012\Projects\MarketingReportingSystem\MRS.Data.Model\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\RiyazPC\Documents\visual studio 2012\Projects\MarketingReportingSystem\MRS.Data.Model\obj\Release\MRS.Data.Model.csprojResolveAssemblyReference.cache
+C:\Users\RiyazPC\Documents\visual studio 2012\Projects\MarketingReportingSystem\MRS.Data.Model\obj\Release\MRS.Data.Model.dll
+C:\Users\RiyazPC\Documents\visual studio 2012\Projects\MarketingReportingSystem\MRS.Data.Model\obj\Release\MRS.Data.Model.pdb

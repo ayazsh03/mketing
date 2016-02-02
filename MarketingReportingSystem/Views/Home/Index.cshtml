@@ -1,0 +1,61 @@
+﻿@model IEnumerable<MRS.Data.Model.Masterlist>
+@{
+    ViewBag.Title = "Index";
+}
+
+<script>
+    function Submit(id) {
+        var chk = $('#chk' + id).prop('checked');
+        var comment = $('#txt' + id).val();
+
+        $.ajax({
+            method: "POST",
+            url: "Submit",
+            data: { Status: chk, Comment: comment, MasterId: id }
+        }).done(function (msg) {
+            alert("Data Saved: " + msg);
+        }).error(function (msg) {
+            alert("Error while saving data");
+        });
+  
+    }
+    
+</script>
+<table class="table table-condensed table-striped">
+    <tr>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>URL</th>
+        <th>Location</th>
+        <th>CurrentJob</th>
+        <th>Company</th>
+        <th>Posted</th>
+        <th>SearchString</th>
+        <th>JobTitle</th>
+        <th>Status</th>
+        <th>Comment</th>
+        <th>Action</th>
+    </tr>
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@item.FirstName</td>
+        <td>@item.LastName</td>
+        <td>@item.Email1</td>
+        <td>@item.PrimaryPhone</td>
+        <td>@item.Url</td>
+        <td>@item.Location</td>
+        <td>@item.CurrentJob</td>
+        <td>@item.Company</td>
+        <td>@item.Posted.Value.ToString("MM-dd-yyyy")</td>
+        <td>@item.SearchString</td>
+        <td>@item.JobTitle</td>
+        <td><input type="checkbox" id="@string.Format("chk{0}", @item.MasterID)" /> </td>
+        <td><textarea id="@string.Format("txt{0}", @item.MasterID)" class="form-control" rows="2" cols="15"></textarea>
+        </td>
+        <td><input type="button" value="Submit" class="btn btn-success" onclick="Submit(@item.MasterID)" /> </td>
+    </tr>
+}
+</table>

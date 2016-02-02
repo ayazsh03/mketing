@@ -1,0 +1,10 @@
+c:\users\riyazpc\documents\visual studio 2012\Projects\MarketingReportingSystem\MRS.Data.Model\bin\Debug\MRS.Data.Model.dll.config
+c:\users\riyazpc\documents\visual studio 2012\Projects\MarketingReportingSystem\MRS.Data.Model\bin\Debug\MRS.Data.Model.dll
+c:\users\riyazpc\documents\visual studio 2012\Projects\MarketingReportingSystem\MRS.Data.Model\bin\Debug\MRS.Data.Model.pdb
+c:\users\riyazpc\documents\visual studio 2012\Projects\MarketingReportingSystem\MRS.Data.Model\bin\Debug\EntityFramework.dll
+c:\users\riyazpc\documents\visual studio 2012\Projects\MarketingReportingSystem\MRS.Data.Model\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\riyazpc\documents\visual studio 2012\Projects\MarketingReportingSystem\MRS.Data.Model\bin\Debug\EntityFramework.xml
+c:\users\riyazpc\documents\visual studio 2012\Projects\MarketingReportingSystem\MRS.Data.Model\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\riyazpc\documents\visual studio 2012\Projects\MarketingReportingSystem\MRS.Data.Model\obj\Debug\MRS.Data.Model.csprojResolveAssemblyReference.cache
+c:\users\riyazpc\documents\visual studio 2012\Projects\MarketingReportingSystem\MRS.Data.Model\obj\Debug\MRS.Data.Model.dll
+c:\users\riyazpc\documents\visual studio 2012\Projects\MarketingReportingSystem\MRS.Data.Model\obj\Debug\MRS.Data.Model.pdb
