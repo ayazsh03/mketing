@@ -18,6 +18,8 @@ namespace MarketingReportingSystem.Controllers
             var list = me.Masterlists.Where(x => x.IsSentToAccountMgr == false).ToList();
 
             return View(list);
+
+//added hassanoor
         }
 
 
