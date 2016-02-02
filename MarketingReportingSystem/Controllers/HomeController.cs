@@ -16,6 +16,7 @@ namespace MarketingReportingSystem.Controllers
         public ActionResult Index()
         {
             var list = me.Masterlists.Where(x => x.IsSentToAccountMgr == false).ToList();
+
             return View(list);
         }
 

@@ -30,3 +30,30 @@ c:\users\riyazpc\documents\visual studio 2012\Projects\MarketingReportingSystem\
 c:\users\riyazpc\documents\visual studio 2012\Projects\MarketingReportingSystem\MarketingReportingSystem\obj\Debug\MarketingReportingSystem.pdb
 c:\users\riyazpc\documents\visual studio 2012\Projects\MarketingReportingSystem\MarketingReportingSystem\bin\EntityFramework.SqlServer.dll
 c:\users\riyazpc\documents\visual studio 2012\Projects\MarketingReportingSystem\MarketingReportingSystem\bin\EntityFramework.SqlServer.xml
+D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\bin\MarketingReportingSystem.dll.config
+D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\bin\MarketingReportingSystem.dll
+D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\bin\MarketingReportingSystem.pdb
+D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\bin\EntityFramework.dll
+D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\bin\EntityFramework.SqlServer.dll
+D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\bin\Microsoft.Web.Infrastructure.dll
+D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\bin\MRS.Data.Model.dll
+D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\bin\Newtonsoft.Json.dll
+D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\bin\System.Web.Helpers.dll
+D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\bin\System.Web.Mvc.dll
+D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\bin\System.Web.Razor.dll
+D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\bin\System.Web.WebPages.Deployment.dll
+D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\bin\System.Web.WebPages.dll
+D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\bin\System.Web.WebPages.Razor.dll
+D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\bin\MRS.Data.Model.pdb
+D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\bin\EntityFramework.xml
+D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\bin\EntityFramework.SqlServer.xml
+D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\bin\Newtonsoft.Json.xml
+D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\bin\System.Web.Helpers.xml
+D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\bin\System.Web.Mvc.xml
+D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\bin\System.Web.Razor.xml
+D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\bin\System.Web.WebPages.xml
+D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\bin\System.Web.WebPages.Deployment.xml
+D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\bin\System.Web.WebPages.Razor.xml
+D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\obj\Debug\MarketingReportingSystem.csprojResolveAssemblyReference.cache
+D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\obj\Debug\MarketingReportingSystem.dll
+D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\obj\Debug\MarketingReportingSystem.pdb

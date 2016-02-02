@@ -8,3 +8,13 @@ c:\users\riyazpc\documents\visual studio 2012\Projects\MarketingReportingSystem\
 c:\users\riyazpc\documents\visual studio 2012\Projects\MarketingReportingSystem\MRS.Data.Model\obj\Debug\MRS.Data.Model.csprojResolveAssemblyReference.cache
 c:\users\riyazpc\documents\visual studio 2012\Projects\MarketingReportingSystem\MRS.Data.Model\obj\Debug\MRS.Data.Model.dll
 c:\users\riyazpc\documents\visual studio 2012\Projects\MarketingReportingSystem\MRS.Data.Model\obj\Debug\MRS.Data.Model.pdb
+D:\GitHub\MarketingReportingSystem\MRS.Data.Model\bin\Debug\MRS.Data.Model.dll.config
+D:\GitHub\MarketingReportingSystem\MRS.Data.Model\bin\Debug\MRS.Data.Model.dll
+D:\GitHub\MarketingReportingSystem\MRS.Data.Model\bin\Debug\MRS.Data.Model.pdb
+D:\GitHub\MarketingReportingSystem\MRS.Data.Model\bin\Debug\EntityFramework.dll
+D:\GitHub\MarketingReportingSystem\MRS.Data.Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\GitHub\MarketingReportingSystem\MRS.Data.Model\bin\Debug\EntityFramework.xml
+D:\GitHub\MarketingReportingSystem\MRS.Data.Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\GitHub\MarketingReportingSystem\MRS.Data.Model\obj\Debug\MRS.Data.Model.csprojResolveAssemblyReference.cache
+D:\GitHub\MarketingReportingSystem\MRS.Data.Model\obj\Debug\MRS.Data.Model.dll
+D:\GitHub\MarketingReportingSystem\MRS.Data.Model\obj\Debug\MRS.Data.Model.pdb
