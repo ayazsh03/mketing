@@ -1,0 +1,22 @@
+{
+  "name": "maxnet",
+  "homepage": "https://github.com/mstevenet/mketing",
+  "authors": [
+    "Steven <steven.sky2020@gmail.com>"
+  ],
+  "description": "marketing",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "MarketingReportingSystem/Content/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jqwidgets": "^4.0.0"
+  }
+}
