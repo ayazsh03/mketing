@@ -16,10 +16,13 @@ namespace MarketingReportingSystem.Controllers
         public ActionResult Index()
         {
             var list = me.Masterlists.Where(x => x.IsSentToAccountMgr == false).ToList();
-
             return View(list);
+        }
 
-//added hassanoor
+        public JsonResult GetData()
+        {
+            var list = me.Masterlists.Where(x => x.IsSentToAccountMgr == false).ToList();
+            return Json(list, JsonRequestBehavior.AllowGet);
         }
 
 

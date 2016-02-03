@@ -17,6 +17,7 @@
     "tests"
   ],
   "dependencies": {
-    "jqwidgets": "^4.0.0"
+    "jqwidgets": "^4.0.0",
+    "angular": "angularjs#^1.4.9"
   }
 }

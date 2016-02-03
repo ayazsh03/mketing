@@ -2,7 +2,8 @@
 @{
     ViewBag.Title = "Index";
 }
-
+<script src="~/Content/jqwidgets/jqwidgets/jqx-all.js"></script>
+<link href="~/Content/jqwidgets/jqwidgets/styles/jqx.base.css" rel="stylesheet" />
 <script>
     function Submit(id) {
         var chk = $('#chk' + id).prop('checked');
@@ -17,11 +18,13 @@
         }).error(function (msg) {
             alert("Error while saving data");
         });
+
+        
   
     }
     
 </script>
-<table class="table table-condensed table-striped">
+@*<table class="table table-condensed table-striped">
     <tr>
         <th>FirstName</th>
         <th>LastName</th>
@@ -58,4 +61,69 @@
         <td><input type="button" value="Submit" class="btn btn-success" onclick="Submit(@item.MasterID)" /> </td>
     </tr>
 }
-</table>
+</table>*@
+
+        <div id="jqxgrid"></div>
+
+
+@section userscript {
+    $.ajax({
+            method: "Get",
+            url: "./GetData"
+        }).done(function (msg) {
+            gridShow(msg);
+        }).error(function (msg) {
+            alert(JSON.stringify(msg));
+        });
+
+     function gridShow(data) {
+            var source =
+            {
+                datatype: "json",
+                datafields: [
+                    { name: 'FirstName', type: 'string' },
+                    { name: 'LastName', type: 'string' },
+                    { name: 'Email1', type: 'string' },
+                    { name: 'PrimaryPhone', type: 'string' },
+                    { name: 'Url', type: 'string' },
+                    { name: 'Location', type: 'string' },
+                    { name: 'CurrentJob', type: 'string' },
+                    { name: 'Company', type: 'string' },
+                    { name: 'Posted', type: 'date' },
+                    { name: 'SearchString', type: 'string' },
+                    { name: 'JobTitle', type: 'string' }
+                ],
+                localdata: data
+            };
+
+            var dataAdapter = new $.jqx.dataAdapter(source);
+
+            $("#jqxgrid").jqxGrid(
+            {
+                width : '100%',
+                source: dataAdapter,                
+                pageable: true,
+                autoheight: true,
+                sortable: true,
+                showfilterrow: true,
+                filterable: true,
+                altrows: true,
+                enabletooltips: true,
+                editable: true,
+                selectionmode: 'multiplecellsadvanced',
+                columns: [
+                    { text: 'First Name', align: 'center', datafield: 'FirstName' },
+                    { text: 'Last Name', align: 'center', datafield: 'LastName' },
+                    { text: 'Email', align: 'center', datafield: 'Email1' },
+                    { text: 'Phone', align: 'center', datafield: 'PrimaryPhone' },
+                    { text: 'URL', align: 'center', datafield: 'Url' },
+                    { text: 'Location', align: 'center', datafield: 'Location' },
+                    { text: 'Current Job', align: 'center', datafield: 'CurrentJob' },
+                    { text: 'Company', align: 'center', datafield: 'Company' },
+                    { text: 'Posted', align: 'center', datafield: 'Posted',cellsformat: 'd' },
+                    { text: 'SearchString', align: 'center', datafield: 'SearchString' },
+                    { text: 'JobTitle', align: 'center', datafield: 'JobTitle' }
+                ]
+            });
+        }
+}

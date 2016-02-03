@@ -57,3 +57,35 @@ D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\bin\System.Web.WebPa
 D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\obj\Debug\MarketingReportingSystem.csprojResolveAssemblyReference.cache
 D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\obj\Debug\MarketingReportingSystem.dll
 D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\obj\Debug\MarketingReportingSystem.pdb
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\bin\MarketingReportingSystem.dll
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\bin\MarketingReportingSystem.pdb
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\bin\EntityFramework.dll
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\bin\EntityFramework.SqlServer.dll
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\bin\MRS.Data.Model.dll
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\bin\Newtonsoft.Json.dll
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\bin\System.Net.Http.Formatting.dll
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\bin\System.Web.Helpers.dll
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\bin\System.Web.Http.dll
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\bin\System.Web.Http.WebHost.dll
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\bin\System.Web.Mvc.dll
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\bin\System.Web.Razor.dll
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\bin\System.Web.WebPages.Deployment.dll
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\bin\System.Web.WebPages.dll
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\bin\System.Web.WebPages.Razor.dll
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\bin\MRS.Data.Model.pdb
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\bin\EntityFramework.xml
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\bin\EntityFramework.SqlServer.xml
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\bin\Newtonsoft.Json.xml
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\bin\System.Net.Http.Formatting.xml
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\bin\System.Web.Helpers.xml
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\bin\System.Web.Http.xml
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\bin\System.Web.Http.WebHost.xml
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\bin\System.Web.Mvc.xml
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\bin\System.Web.Razor.xml
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\bin\System.Web.WebPages.xml
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\bin\System.Web.WebPages.Deployment.xml
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\bin\System.Web.WebPages.Razor.xml
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\obj\Debug\MarketingReportingSystem.csprojResolveAssemblyReference.cache
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\obj\Debug\MarketingReportingSystem.dll
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\obj\Debug\MarketingReportingSystem.pdb
