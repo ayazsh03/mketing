@@ -18,6 +18,7 @@
   ],
   "dependencies": {
     "jqwidgets": "^4.0.0",
-    "angular": "angularjs#^1.4.9"
+    "angular": "angularjs#^1.4.9",
+    "jquery-ui": "jqueryui#^1.11.4"
   }
 }
