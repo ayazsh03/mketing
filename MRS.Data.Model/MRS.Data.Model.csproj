@@ -50,7 +50,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonModel.cs" />
-    <Compile Include="Masterlist.cs">
+    <Compile Include="GetDataOnDateAndSearchKey_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetDataOnDateAndSearchKey_Result1.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MasterList.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Model.Context.cs">

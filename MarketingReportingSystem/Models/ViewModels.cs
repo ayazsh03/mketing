@@ -20,5 +20,19 @@ namespace MarketingReportingSystem.Models
             public string Comment { get; set; }
             public int MasterId { get; set; }
         }
+
+        public class Selection
+        {
+            public string Date { get; set; }
+            public string SearchString { get; set; }
+        }
+
+        public class SubmitterConsultant
+        {
+            public int statusid { get; set; }
+            public string Comment { get; set; }
+            public int Rating { get; set; }
+            public int MasterID { get; set; }
+        }
     }
 }

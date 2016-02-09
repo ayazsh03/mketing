@@ -12,7 +12,7 @@ namespace MarketingReportingSystem.Controllers
     {
         //
         // GET: /Login/
-        private MRS.Data.Model.MarketingEntities me = new MRS.Data.Model.MarketingEntities();
+        private MRS.Data.Model.Entities me = new MRS.Data.Model.Entities();
         public ActionResult Index()
         {
             return View();
@@ -30,7 +30,7 @@ namespace MarketingReportingSystem.Controllers
                 else
                 {
                     FormsAuthentication.SetAuthCookie(user.Id +";" + user.UserName, false);
-                    return Redirect("~/Home/Index");
+                    return Redirect("~/Home/DateAndSearch");
 
                 }
             }

@@ -18,3 +18,13 @@ D:\GitHub\MarketingReportingSystem\MRS.Data.Model\bin\Debug\EntityFramework.SqlS
 D:\GitHub\MarketingReportingSystem\MRS.Data.Model\obj\Debug\MRS.Data.Model.csprojResolveAssemblyReference.cache
 D:\GitHub\MarketingReportingSystem\MRS.Data.Model\obj\Debug\MRS.Data.Model.dll
 D:\GitHub\MarketingReportingSystem\MRS.Data.Model\obj\Debug\MRS.Data.Model.pdb
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MRS.Data.Model\bin\Debug\MRS.Data.Model.dll.config
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MRS.Data.Model\bin\Debug\MRS.Data.Model.dll
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MRS.Data.Model\bin\Debug\MRS.Data.Model.pdb
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MRS.Data.Model\bin\Debug\EntityFramework.dll
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MRS.Data.Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MRS.Data.Model\bin\Debug\EntityFramework.xml
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MRS.Data.Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MRS.Data.Model\obj\Debug\MRS.Data.Model.dll
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MRS.Data.Model\obj\Debug\MRS.Data.Model.pdb
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MRS.Data.Model\obj\Debug\MRS.Data.Model.csprojResolveAssemblyReference.cache

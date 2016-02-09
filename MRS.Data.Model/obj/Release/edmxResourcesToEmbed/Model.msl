@@ -1,23 +1,115 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="MarketingV2ModelStoreContainer" CdmEntityContainer="MarketingEntities">
+  <EntityContainerMapping StorageEntityContainer="MarketingV2ModelStoreContainer" CdmEntityContainer="Entities">
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="MarketingV2Model.User">
         <MappingFragment StoreEntitySet="Users">
-          <ScalarProperty Name="password" ColumnName="password" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />
           <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="password" ColumnName="password" />
           <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
           <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Masterlists">
-      <EntityTypeMapping TypeName="MarketingV2Model.Masterlist">
-        <MappingFragment StoreEntitySet="Masterlist">
+    <FunctionImportMapping FunctionImportName="GetSearchString" FunctionName="MarketingV2Model.Store.GetSearchString" />
+    <FunctionImportMapping FunctionImportName="GetDateString" FunctionName="MarketingV2Model.Store.GetDateString" />
+    <FunctionImportMapping FunctionImportName="GetDataOnDateAndSearchKey" FunctionName="MarketingV2Model.Store.GetDataOnDateAndSearchKey">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarketingV2Model.GetDataOnDateAndSearchKey_Result1">
+          <ScalarProperty Name="MasterID" ColumnName="MasterID" />
+          <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+          <ScalarProperty Name="Email1" ColumnName="Email1" />
+          <ScalarProperty Name="Email2" ColumnName="Email2" />
+          <ScalarProperty Name="Email3" ColumnName="Email3" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+          <ScalarProperty Name="BusinessStreet" ColumnName="BusinessStreet" />
+          <ScalarProperty Name="BusinessStreet2" ColumnName="BusinessStreet2" />
+          <ScalarProperty Name="BusinessStreet3" ColumnName="BusinessStreet3" />
+          <ScalarProperty Name="BusinessCity" ColumnName="BusinessCity" />
+          <ScalarProperty Name="BusinessState" ColumnName="BusinessState" />
+          <ScalarProperty Name="BusinessPostalCode" ColumnName="BusinessPostalCode" />
+          <ScalarProperty Name="BusinessCountry" ColumnName="BusinessCountry" />
+          <ScalarProperty Name="HomeStreet" ColumnName="HomeStreet" />
+          <ScalarProperty Name="HomeStreet2" ColumnName="HomeStreet2" />
+          <ScalarProperty Name="HomeStreet3" ColumnName="HomeStreet3" />
+          <ScalarProperty Name="HomeCity" ColumnName="HomeCity" />
+          <ScalarProperty Name="HomeState" ColumnName="HomeState" />
+          <ScalarProperty Name="HomePostalCode" ColumnName="HomePostalCode" />
+          <ScalarProperty Name="HomeCountry" ColumnName="HomeCountry" />
+          <ScalarProperty Name="OtherStreet" ColumnName="OtherStreet" />
+          <ScalarProperty Name="OtherStreet2" ColumnName="OtherStreet2" />
+          <ScalarProperty Name="OtherStreet3" ColumnName="OtherStreet3" />
+          <ScalarProperty Name="OtherCity" ColumnName="OtherCity" />
+          <ScalarProperty Name="OtherState" ColumnName="OtherState" />
+          <ScalarProperty Name="OtherPostalCode" ColumnName="OtherPostalCode" />
+          <ScalarProperty Name="OtherCountry" ColumnName="OtherCountry" />
+          <ScalarProperty Name="AssistantPhone" ColumnName="AssistantPhone" />
+          <ScalarProperty Name="BusinessFax" ColumnName="BusinessFax" />
+          <ScalarProperty Name="BusinessPhone" ColumnName="BusinessPhone" />
+          <ScalarProperty Name="BusinessPhone2" ColumnName="BusinessPhone2" />
+          <ScalarProperty Name="CallBack" ColumnName="CallBack" />
+          <ScalarProperty Name="CarPhone" ColumnName="CarPhone" />
+          <ScalarProperty Name="CompanyMainPhone" ColumnName="CompanyMainPhone" />
+          <ScalarProperty Name="HomeFax" ColumnName="HomeFax" />
+          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+          <ScalarProperty Name="HomePhone2" ColumnName="HomePhone2" />
+          <ScalarProperty Name="ISDN" ColumnName="ISDN" />
+          <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+          <ScalarProperty Name="OtherFax" ColumnName="OtherFax" />
+          <ScalarProperty Name="OtherPhone" ColumnName="OtherPhone" />
+          <ScalarProperty Name="Pager" ColumnName="Pager" />
+          <ScalarProperty Name="PrimaryPhone" ColumnName="PrimaryPhone" />
+          <ScalarProperty Name="RadioPhone" ColumnName="RadioPhone" />
+          <ScalarProperty Name="TTYTTDPhone" ColumnName="TTYTTDPhone" />
+          <ScalarProperty Name="Telex" ColumnName="Telex" />
+          <ScalarProperty Name="AssistantName" ColumnName="AssistantName" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="ManagerName" ColumnName="ManagerName" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="OtherAddressPOBox" ColumnName="OtherAddressPOBox" />
+          <ScalarProperty Name="Spouse" ColumnName="Spouse" />
+          <ScalarProperty Name="Webpage" ColumnName="Webpage" />
+          <ScalarProperty Name="PersonalWebpage" ColumnName="PersonalWebpage" />
+          <ScalarProperty Name="ImportedSource" ColumnName="ImportedSource" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="CurrentJob" ColumnName="CurrentJob" />
+          <ScalarProperty Name="Posted" ColumnName="Posted" />
+          <ScalarProperty Name="SearchString" ColumnName="SearchString" />
+          <ScalarProperty Name="LinkedInStatus" ColumnName="LinkedInStatus" />
+          <ScalarProperty Name="LinkedInIndustryType" ColumnName="LinkedInIndustryType" />
+          <ScalarProperty Name="IsSentToAccountMgr" ColumnName="IsSentToAccountMgr" />
+          <ScalarProperty Name="url2" ColumnName="url2" />
+          <ScalarProperty Name="url3" ColumnName="url3" />
+          <ScalarProperty Name="phone2" ColumnName="phone2" />
+          <ScalarProperty Name="phone3" ColumnName="phone3" />
+          <ScalarProperty Name="SearchedDate" ColumnName="SearchedDate" />
+          <ScalarProperty Name="FileID" ColumnName="FileID" />
+          <ScalarProperty Name="sentToprocessFileDate" ColumnName="sentToprocessFileDate" />
+          <ScalarProperty Name="sentToAcMgrFileDate" ColumnName="sentToAcMgrFileDate" />
+          <ScalarProperty Name="statusid" ColumnName="statusid" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="MasterLists">
+      <EntityTypeMapping TypeName="MarketingV2Model.MasterList">
+        <MappingFragment StoreEntitySet="MasterList">
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="comment" ColumnName="comment" />
           <ScalarProperty Name="statusid" ColumnName="statusid" />

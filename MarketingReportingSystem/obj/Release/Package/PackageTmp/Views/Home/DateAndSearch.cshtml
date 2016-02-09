@@ -1,0 +1,28 @@
+﻿@model object
+
+@{
+    ViewBag.Title = "DateAndSearch";
+}
+
+<h2>DateAndSearch</h2>
+
+<div class="col-md-6">
+
+
+@using (Html.BeginForm("DateSelection","Home","POST"))
+{
+
+@:Select Date : @Html.Action("ComboDate")
+
+}
+
+</div>
+<div class="col-md-6">
+@using (Html.BeginForm("SearchStringSelection","Home","POST"))
+{
+    <input type="hidden" name="Date" value="@Model.ToString()" />
+@: Select SearchString:  @Html.Action("ComboSearchString")
+  
+}
+
+</div>

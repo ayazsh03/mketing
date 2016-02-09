@@ -11,18 +11,125 @@ namespace MarketingReportingSystem.Controllers
     {
         //
         // GET: /Home/
-        private MRS.Data.Model.MarketingEntities me = new MRS.Data.Model.MarketingEntities();
+        private MRS.Data.Model.Entities me = new MRS.Data.Model.Entities();
 
         public ActionResult Index()
         {
-            var list = me.Masterlists.Where(x => x.IsSentToAccountMgr == false).ToList();
-            return View(list);
+            //var list = me.Masterlists.Where(x => x.IsSentToAccountMgr == false).ToList();
+            //return View(list);
+            var obj = Tuple.Create<string, string>(
+                TempData["Date"]==null?"": TempData["Date"].ToString(),
+                TempData["SearchKey"] == null ? "" : TempData["SearchKey"].ToString()
+                );
+            return View(obj);
         }
 
-        public JsonResult GetData()
+        public JsonResult GetData(MarketingReportingSystem.Models.ViewModels.Selection sc)
         {
-            var list = me.Masterlists.Where(x => x.IsSentToAccountMgr == false).ToList();
-            return Json(list, JsonRequestBehavior.AllowGet);
+            //var dtTime = DateTime.Now;
+            //dtTime = new DateTime(dtTime.Year,dtTime.Month, dtTime.Day,0,0,0).AddDays(-2);
+            //var list = me.MasterLists.Where(x => x.UpdateDate > dtTime && x.LoginName == null).ToList();
+            //var dlist = list.Where(x => x.UpdateDate.ToString("MM-dd-yyyy").Contains(sc.Date)).ToList();
+            //var slist = dlist.Where(x => x.SearchString == (sc.SearchString == null ? "" : sc.SearchString)).ToList();
+
+            var datedata = sc.Date == null ? "" : sc.Date;
+            var searchdata = sc.SearchString == null ? "" : HttpUtility.HtmlDecode(sc.SearchString);
+            var dlist = me.GetDataOnDateAndSearchKey(datedata, searchdata).ToList(); 
+            JsonResult jsonResult = Json(dlist, JsonRequestBehavior.AllowGet);
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        public PartialViewResult ComboDate()
+        {
+            var data = TempData["Date"] ?? string.Empty;
+            //var dtTime = DateTime.Now;
+            //dtTime = new DateTime(dtTime.Year,dtTime.Month, dtTime.Day,0,0,0).AddDays(-2);
+
+           // var list = me.MasterLists.Where(x => x.UpdateDate > dtTime && x.LoginName == null).ToList().OrderByDescending(x => x.UpdateDate).Select(x => x.UpdateDate.ToString("MM-dd-yyyy"));
+           // var flist = list.Distinct().ToList();
+            var flist = me.GetDateString().ToList();
+            var obj = Tuple.Create<dynamic, string, string>(flist, "Date", data.ToString());
+
+            return PartialView("ComboBox", obj);
+        }
+
+        public PartialViewResult ComboSearchString()
+        {
+            var data = TempData["Date"]!=null? TempData["Date"].ToString() : string.Empty;
+
+            var dtTime = DateTime.Now;
+            dtTime = new DateTime(dtTime.Year, dtTime.Month, dtTime.Day, 0, 0, 0).AddDays(-2);
+
+
+            if (data == "")
+            {
+                data = dtTime.ToString("MM-dd-yyyy");
+            }
+           
+
+           // var list = me.Masterlists.Where(x => x.UpdateDate > dtTime && x.LoginName==null).OrderBy(x=> x.UpdateDate).ToList();
+           // var flist = list.Where(x=> x.UpdateDate.ToString("MM-dd-yyyy").Contains(data))
+           //     .Select(x => x.SearchString).Distinct().ToList();
+           /// me.
+            var flist = me.GetSearchString(data).ToList<string>();
+            var obj = Tuple.Create<dynamic, string, string>(flist, "SearchString", string.Empty);
+            return PartialView("ComboBox",obj);
+        }
+
+
+        public JsonResult SaveMasterListReviews(ViewModels.SubmitterConsultant sc)
+        {
+
+            HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+            FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(authCookie.Value);
+           
+            var masterdata = me.MasterLists.Where(x => sc.MasterID == x.MasterID).FirstOrDefault();
+            if (masterdata != null)
+            {
+                masterdata.comment = sc.Comment;
+                masterdata.statusid = sc.statusid;
+                masterdata.Rating = sc.Rating;
+                masterdata.IsSentToAccountMgr = true;
+                masterdata.UserId = int.Parse(ticket.Name.Substring(0, ticket.Name.IndexOf(";")));
+                me.SaveChanges(); 
+            }
+            return Json(null, JsonRequestBehavior.AllowGet);
+        }
+
+
+        public ActionResult DateAndSearch()
+        {
+           var dtstrTime = me.GetDateString().FirstOrDefault();
+           string data=string.Empty;
+
+           if (TempData["Date"] == null)
+           {
+               data = dtstrTime;
+           }
+           else
+           {
+               data = TempData["Date"].ToString();
+           }
+
+           TempData["Date"] = data;
+
+            return View("DateAndSearch",(object)data);
+        }
+
+        [HttpPost]
+        public ActionResult DateSelection(ViewModels.Selection sc)
+        {
+            TempData["Date"] = sc.Date;
+            return RedirectToAction("DateAndSearch");
+        }
+
+        [HttpPost]
+        public ActionResult SearchStringSelection(ViewModels.Selection sc)
+        {
+            TempData["Date"] = sc.Date;
+            TempData["SearchKey"] = sc.SearchString;
+            return Redirect("index");
         }
 
 
@@ -31,7 +138,7 @@ namespace MarketingReportingSystem.Controllers
             HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
             FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(authCookie.Value);
 
-            var user = me.Masterlists.Where(x => ak.MasterId == x.MasterID).FirstOrDefault();
+            var user = me.MasterLists.Where(x => ak.MasterId == x.MasterID).FirstOrDefault();
             if (user!=null)
             {
                 user.comment = ak.Comment;
