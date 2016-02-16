@@ -27,4 +27,3 @@ C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MRS.Data.Model\bin\D
 C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MRS.Data.Model\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MRS.Data.Model\obj\Debug\MRS.Data.Model.dll
 C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MRS.Data.Model\obj\Debug\MRS.Data.Model.pdb
-C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MRS.Data.Model\obj\Debug\MRS.Data.Model.csprojResolveAssemblyReference.cache

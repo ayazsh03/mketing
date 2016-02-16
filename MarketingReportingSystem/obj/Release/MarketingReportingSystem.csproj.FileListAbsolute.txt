@@ -62,3 +62,4 @@ C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSy
 C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\obj\Release\MarketingReportingSystem.csprojResolveAssemblyReference.cache
 C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\obj\Release\MarketingReportingSystem.dll
 C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\obj\Release\MarketingReportingSystem.pdb
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\bin\MarketingReportingSystem.dll.config

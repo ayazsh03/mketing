@@ -33,6 +33,23 @@ namespace MarketingReportingSystem.Models
             public string Comment { get; set; }
             public int Rating { get; set; }
             public int MasterID { get; set; }
+
+            public string SearchKey { get; set; }
+            public string Date { get; set; }
+        }
+
+        public class SearchKeyRating
+        {
+            public string DateKey { get; set; }
+            public string SearchKey { get; set; }
+            public int Rating { get; set; }
+        }
+
+        public enum ResumeAction
+        {
+            Submitted=1,
+            Connected,
+            Called
         }
     }
 }

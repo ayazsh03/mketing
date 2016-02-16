@@ -29,6 +29,7 @@ namespace MRS.Data.Model
     
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<MasterList> MasterLists { get; set; }
+        public virtual DbSet<MasterSkillRating> MasterSkillRatings { get; set; }
     
         public virtual ObjectResult<string> GetSearchString(string date)
         {
@@ -55,6 +56,103 @@ namespace MRS.Data.Model
                 new ObjectParameter("search", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetDataOnDateAndSearchKey_Result1>("GetDataOnDateAndSearchKey", dateParameter, searchParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> usp_UpdateOrGetSearchKeyRating(string dateKey, string searchKey, Nullable<int> rating, Nullable<int> userId, Nullable<bool> isGet)
+        {
+            var dateKeyParameter = dateKey != null ?
+                new ObjectParameter("DateKey", dateKey) :
+                new ObjectParameter("DateKey", typeof(string));
+    
+            var searchKeyParameter = searchKey != null ?
+                new ObjectParameter("SearchKey", searchKey) :
+                new ObjectParameter("SearchKey", typeof(string));
+    
+            var ratingParameter = rating.HasValue ?
+                new ObjectParameter("Rating", rating) :
+                new ObjectParameter("Rating", typeof(int));
+    
+            var userIdParameter = userId.HasValue ?
+                new ObjectParameter("UserId", userId) :
+                new ObjectParameter("UserId", typeof(int));
+    
+            var isGetParameter = isGet.HasValue ?
+                new ObjectParameter("isGet", isGet) :
+                new ObjectParameter("isGet", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("usp_UpdateOrGetSearchKeyRating", dateKeyParameter, searchKeyParameter, ratingParameter, userIdParameter, isGetParameter);
+        }
+    
+        public virtual ObjectResult<usp_GetActelRecordsINof_Result> usp_GetActelRecordsINof(Nullable<int> requestNo, string date)
+        {
+            var requestNoParameter = requestNo.HasValue ?
+                new ObjectParameter("requestNo", requestNo) :
+                new ObjectParameter("requestNo", typeof(int));
+    
+            var dateParameter = date != null ?
+                new ObjectParameter("date", date) :
+                new ObjectParameter("date", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_GetActelRecordsINof_Result>("usp_GetActelRecordsINof", requestNoParameter, dateParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> usp_GetInfoNewRecordsAdded(string date, Nullable<int> reqType)
+        {
+            var dateParameter = date != null ?
+                new ObjectParameter("date", date) :
+                new ObjectParameter("date", typeof(string));
+    
+            var reqTypeParameter = reqType.HasValue ?
+                new ObjectParameter("reqType", reqType) :
+                new ObjectParameter("reqType", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("usp_GetInfoNewRecordsAdded", dateParameter, reqTypeParameter);
+        }
+    
+        public virtual ObjectResult<usp_GetInfoTotalResumesSubmitted_Result1> usp_GetInfoTotalResumesSubmitted(string date, Nullable<int> reqType)
+        {
+            var dateParameter = date != null ?
+                new ObjectParameter("date", date) :
+                new ObjectParameter("date", typeof(string));
+    
+            var reqTypeParameter = reqType.HasValue ?
+                new ObjectParameter("ReqType", reqType) :
+                new ObjectParameter("ReqType", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_GetInfoTotalResumesSubmitted_Result1>("usp_GetInfoTotalResumesSubmitted", dateParameter, reqTypeParameter);
+        }
+    
+        public virtual int usp_UpdateSkillsRating(Nullable<int> statusid, string comment, Nullable<int> rating, Nullable<int> masterID, string searchKey, string datekey, Nullable<int> userid)
+        {
+            var statusidParameter = statusid.HasValue ?
+                new ObjectParameter("statusid", statusid) :
+                new ObjectParameter("statusid", typeof(int));
+    
+            var commentParameter = comment != null ?
+                new ObjectParameter("Comment", comment) :
+                new ObjectParameter("Comment", typeof(string));
+    
+            var ratingParameter = rating.HasValue ?
+                new ObjectParameter("Rating", rating) :
+                new ObjectParameter("Rating", typeof(int));
+    
+            var masterIDParameter = masterID.HasValue ?
+                new ObjectParameter("MasterID", masterID) :
+                new ObjectParameter("MasterID", typeof(int));
+    
+            var searchKeyParameter = searchKey != null ?
+                new ObjectParameter("SearchKey", searchKey) :
+                new ObjectParameter("SearchKey", typeof(string));
+    
+            var datekeyParameter = datekey != null ?
+                new ObjectParameter("datekey", datekey) :
+                new ObjectParameter("datekey", typeof(string));
+    
+            var useridParameter = userid.HasValue ?
+                new ObjectParameter("userid", userid) :
+                new ObjectParameter("userid", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_UpdateSkillsRating", statusidParameter, commentParameter, ratingParameter, masterIDParameter, searchKeyParameter, datekeyParameter, useridParameter);
         }
     }
 }

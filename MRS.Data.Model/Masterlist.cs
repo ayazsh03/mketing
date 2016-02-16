@@ -97,5 +97,6 @@ namespace MRS.Data.Model
         public string comment { get; set; }
         public Nullable<int> UserId { get; set; }
         public Nullable<int> Rating { get; set; }
+        public Nullable<int> IsNewRow { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿@model Tuple<dynamic, string,string>
 
 <select name="@Model.Item2" onchange="this.form.submit()" class="form-control">
+ <option> -- select an option -- </option>
 @foreach (var item in Model.Item1)
 {
     <option @if(Model.Item3==item){ 

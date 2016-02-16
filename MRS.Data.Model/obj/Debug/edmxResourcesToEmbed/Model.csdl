@@ -24,6 +24,35 @@
       <Parameter Name="search" Mode="In" Type="String" />
     </FunctionImport>
     <EntitySet Name="MasterLists" EntityType="MarketingV2Model.MasterList" />
+    <EntitySet Name="MasterSkillRatings" EntityType="MarketingV2Model.MasterSkillRating" />
+    <FunctionImport Name="usp_UpdateOrGetSearchKeyRating" ReturnType="Collection(Int32)">
+      <Parameter Name="DateKey" Mode="In" Type="String" />
+      <Parameter Name="SearchKey" Mode="In" Type="String" />
+      <Parameter Name="Rating" Mode="In" Type="Int32" />
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+      <Parameter Name="isGet" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="usp_GetActelRecordsINof" ReturnType="Collection(MarketingV2Model.usp_GetActelRecordsINof_Result)">
+      <Parameter Name="requestNo" Mode="In" Type="Int32" />
+      <Parameter Name="date" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="usp_GetInfoNewRecordsAdded" ReturnType="Collection(Int32)">
+      <Parameter Name="date" Mode="In" Type="String" />
+      <Parameter Name="reqType" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_GetInfoTotalResumesSubmitted" ReturnType="Collection(MarketingV2Model.usp_GetInfoTotalResumesSubmitted_Result1)">
+      <Parameter Name="date" Mode="In" Type="String" />
+      <Parameter Name="ReqType" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_UpdateSkillsRating">
+      <Parameter Name="statusid" Mode="In" Type="Int32" />
+      <Parameter Name="Comment" Mode="In" Type="String" />
+      <Parameter Name="Rating" Mode="In" Type="Int32" />
+      <Parameter Name="MasterID" Mode="In" Type="Int32" />
+      <Parameter Name="SearchKey" Mode="In" Type="String" />
+      <Parameter Name="datekey" Mode="In" Type="String" />
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="GetDataOnDateAndSearchKey_Result">
     <Property Type="Int32" Name="MasterID" Nullable="false" />
@@ -282,5 +311,33 @@
     <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="UserId" Type="Int32" />
     <Property Name="Rating" Type="Int32" />
+    <Property Name="IsNewRow" Type="Int32" />
   </EntityType>
+  <EntityType Name="MasterSkillRating">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MasterID" Type="Int32" />
+    <Property Name="SearchString" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Rating" Type="Int32" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="FileID" Type="Int32" />
+    <Property Name="SearchKeyRating" Type="Int32" />
+    <Property Name="SearchKeyUpdatedBy" Type="Int32" />
+  </EntityType>
+  <ComplexType Name="usp_GetActelRecordsINof_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="count" Nullable="true" />
+    <Property Type="String" Name="sourcename" Nullable="false" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="usp_GetInfoTotalResumesSubmitted_Result">
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="81" />
+    <Property Type="Int32" Name="Total" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="usp_GetInfoTotalResumesSubmitted_Result1">
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="81" />
+    <Property Type="Int32" Name="Total" Nullable="true" />
+  </ComplexType>
 </Schema>

@@ -17,9 +17,10 @@ namespace MarketingReportingSystem.Controllers
         {
             //var list = me.Masterlists.Where(x => x.IsSentToAccountMgr == false).ToList();
             //return View(list);
-            var obj = Tuple.Create<string, string>(
+            var obj = Tuple.Create<string, string,string>(
                 TempData["Date"]==null?"": TempData["Date"].ToString(),
-                TempData["SearchKey"] == null ? "" : TempData["SearchKey"].ToString()
+                TempData["SearchKey"] == null ? "" : TempData["SearchKey"].ToString(),
+                TempData["SearchKeyRating"] == null ? "" : TempData["SearchKeyRating"].ToString()
                 );
             return View(obj);
         }
@@ -83,18 +84,70 @@ namespace MarketingReportingSystem.Controllers
 
             HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
             FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(authCookie.Value);
-           
-            var masterdata = me.MasterLists.Where(x => sc.MasterID == x.MasterID).FirstOrDefault();
-            if (masterdata != null)
+
+            var isFlag = false;
+            try
             {
-                masterdata.comment = sc.Comment;
-                masterdata.statusid = sc.statusid;
-                masterdata.Rating = sc.Rating;
-                masterdata.IsSentToAccountMgr = true;
-                masterdata.UserId = int.Parse(ticket.Name.Substring(0, ticket.Name.IndexOf(";")));
-                me.SaveChanges(); 
+                //var masterdata = me.MasterLists.Where(x => sc.MasterID == x.MasterID).FirstOrDefault();
+                //if (masterdata != null)
+                //{
+                //    masterdata.comment = sc.Comment;
+                //    masterdata.statusid = sc.statusid;
+                //    masterdata.Rating = sc.Rating;
+                //    masterdata.IsSentToAccountMgr = true;
+                //    masterdata.UserId = int.Parse(ticket.Name.Substring(0, ticket.Name.IndexOf(";")));
+                //    me.SaveChanges();
+                //}
+
+                //var mastersr = me.MasterSkillRatings.Where(x => sc.MasterID == x.MasterID && x.SearchString== HttpUtility.HtmlDecode(sc.SearchKey))
+                //    .ToList().Where(x=> x.UpdateDate == sc.Date)
+                //if (mastersr != null)
+                //{
+                //    mastersr.Rating = sc.Rating;
+                //    masterdata.UserId = int.Parse(ticket.Name.Substring(0, ticket.Name.IndexOf(";")));
+                //    me.SaveChanges();
+                //}
+
+                me.usp_UpdateSkillsRating(sc.statusid, sc.Comment, sc.Rating, sc.MasterID, sc.SearchKey, sc.Date, int.Parse(ticket.Name.Substring(0, ticket.Name.IndexOf(";"))));
+
+
+                isFlag = true;
             }
-            return Json(null, JsonRequestBehavior.AllowGet);
+            catch (Exception ex)
+            {
+                isFlag = false;
+
+                System.IO.File.AppendAllText("Error.log", ex.Data.ToString());
+            }
+
+
+            return Json(isFlag, JsonRequestBehavior.AllowGet);
+        }
+
+
+        public JsonResult SaveSearchRating(ViewModels.SearchKeyRating sc)
+        {
+
+            HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+            FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(authCookie.Value);
+
+            var isFlag = false;
+            try
+            {
+                int Userid = int.Parse(ticket.Name.Substring(0, ticket.Name.IndexOf(";")));
+                var searchKey =   sc.SearchKey == null ? "" : HttpUtility.HtmlDecode(sc.SearchKey);
+                me.usp_UpdateOrGetSearchKeyRating(sc.DateKey, searchKey, sc.Rating, Userid, false);
+                isFlag = true;
+            }
+            catch (Exception ex)
+            {
+                isFlag = false;
+
+                System.IO.File.AppendAllText("Error.log", ex.Data.ToString());
+            }
+
+
+            return Json(isFlag, JsonRequestBehavior.AllowGet);
         }
 
 
@@ -112,7 +165,7 @@ namespace MarketingReportingSystem.Controllers
                data = TempData["Date"].ToString();
            }
 
-           TempData["Date"] = data;
+            TempData["Date"] = data;
 
             return View("DateAndSearch",(object)data);
         }
@@ -129,6 +182,7 @@ namespace MarketingReportingSystem.Controllers
         {
             TempData["Date"] = sc.Date;
             TempData["SearchKey"] = sc.SearchString;
+            TempData["SearchKeyRating"] = me.usp_UpdateOrGetSearchKeyRating(sc.Date, sc.SearchString, null, null, true).FirstOrDefault();
             return Redirect("index");
         }
 

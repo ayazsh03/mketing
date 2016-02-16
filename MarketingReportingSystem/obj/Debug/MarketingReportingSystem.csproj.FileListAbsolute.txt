@@ -57,6 +57,7 @@ D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\bin\System.Web.WebPa
 D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\obj\Debug\MarketingReportingSystem.csprojResolveAssemblyReference.cache
 D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\obj\Debug\MarketingReportingSystem.dll
 D:\GitHub\MarketingReportingSystem\MarketingReportingSystem\obj\Debug\MarketingReportingSystem.pdb
+C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\bin\MarketingReportingSystem.dll.config
 C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\bin\MarketingReportingSystem.dll
 C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\bin\MarketingReportingSystem.pdb
 C:\Users\RiyazPC\Documents\Visual Studio 2012\Projects\MRS2\MarketingReportingSystem\bin\EntityFramework.dll

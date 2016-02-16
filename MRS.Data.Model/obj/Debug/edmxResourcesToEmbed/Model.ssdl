@@ -88,6 +88,21 @@
     <Property Name="comment" Type="varchar(max)" />
     <Property Name="UserId" Type="int" />
     <Property Name="Rating" Type="int" />
+    <Property Name="IsNewRow" Type="int" />
+  </EntityType>
+  <EntityType Name="MasterSkillRating">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MasterID" Type="int" />
+    <Property Name="SearchString" Type="varchar" MaxLength="255" />
+    <Property Name="Rating" Type="int" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="FileID" Type="int" />
+    <Property Name="SearchKeyRating" Type="int" />
+    <Property Name="SearchKeyUpdatedBy" Type="int" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
@@ -110,8 +125,37 @@
   <Function Name="GetSearchString" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="date" Type="varchar" Mode="In" />
   </Function>
+  <Function Name="usp_GetActelRecordsINof" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="requestNo" Type="int" Mode="In" />
+    <Parameter Name="date" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_GetInfoNewRecordsAdded" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="date" Type="varchar" Mode="In" />
+    <Parameter Name="reqType" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetInfoTotalResumesSubmitted" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="date" Type="varchar" Mode="In" />
+    <Parameter Name="ReqType" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_UpdateOrGetSearchKeyRating" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DateKey" Type="varchar" Mode="In" />
+    <Parameter Name="SearchKey" Type="varchar" Mode="In" />
+    <Parameter Name="Rating" Type="int" Mode="In" />
+    <Parameter Name="UserId" Type="int" Mode="In" />
+    <Parameter Name="isGet" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="usp_UpdateSkillsRating" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="statusid" Type="int" Mode="In" />
+    <Parameter Name="Comment" Type="varchar" Mode="In" />
+    <Parameter Name="Rating" Type="int" Mode="In" />
+    <Parameter Name="MasterID" Type="int" Mode="In" />
+    <Parameter Name="SearchKey" Type="varchar" Mode="In" />
+    <Parameter Name="datekey" Type="varchar" Mode="In" />
+    <Parameter Name="userid" Type="int" Mode="In" />
+  </Function>
   <EntityContainer Name="MarketingV2ModelStoreContainer">
     <EntitySet Name="MasterList" EntityType="Self.MasterList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MasterSkillRating" EntityType="Self.MasterSkillRating" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

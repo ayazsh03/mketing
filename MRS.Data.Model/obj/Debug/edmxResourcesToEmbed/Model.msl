@@ -109,6 +109,7 @@
     <EntitySetMapping Name="MasterLists">
       <EntityTypeMapping TypeName="MarketingV2Model.MasterList">
         <MappingFragment StoreEntitySet="MasterList">
+          <ScalarProperty Name="IsNewRow" ColumnName="IsNewRow" />
           <ScalarProperty Name="Rating" ColumnName="Rating" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="comment" ColumnName="comment" />
@@ -195,5 +196,40 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="MasterSkillRatings">
+      <EntityTypeMapping TypeName="MarketingV2Model.MasterSkillRating">
+        <MappingFragment StoreEntitySet="MasterSkillRating">
+          <ScalarProperty Name="SearchKeyUpdatedBy" ColumnName="SearchKeyUpdatedBy" />
+          <ScalarProperty Name="SearchKeyRating" ColumnName="SearchKeyRating" />
+          <ScalarProperty Name="FileID" ColumnName="FileID" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="SearchString" ColumnName="SearchString" />
+          <ScalarProperty Name="MasterID" ColumnName="MasterID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_UpdateOrGetSearchKeyRating" FunctionName="MarketingV2Model.Store.usp_UpdateOrGetSearchKeyRating" />
+    <FunctionImportMapping FunctionImportName="usp_GetActelRecordsINof" FunctionName="MarketingV2Model.Store.usp_GetActelRecordsINof">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarketingV2Model.usp_GetActelRecordsINof_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="count" ColumnName="count" />
+          <ScalarProperty Name="sourcename" ColumnName="sourcename" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_GetInfoNewRecordsAdded" FunctionName="MarketingV2Model.Store.usp_GetInfoNewRecordsAdded" />
+    <FunctionImportMapping FunctionImportName="usp_GetInfoTotalResumesSubmitted" FunctionName="MarketingV2Model.Store.usp_GetInfoTotalResumesSubmitted">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MarketingV2Model.usp_GetInfoTotalResumesSubmitted_Result1">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_UpdateSkillsRating" FunctionName="MarketingV2Model.Store.usp_UpdateSkillsRating" />
   </EntityContainerMapping>
 </Mapping>

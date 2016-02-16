@@ -1,86 +1,84 @@
-﻿@model Tuple<string, string>
+﻿@model Tuple<string, string, string>
 @{
     ViewBag.Title = "Index";
 }
 <script src="~/Content/jqwidgets/jqwidgets/jqx-all.js"></script>
 <link href="~/Content/jqwidgets/jqwidgets/styles/jqx.base.css" rel="stylesheet" />
-<script>
-    function Submit(id) {
-        var chk = $('#chk' + id).prop('checked');
-        var comment = $('#txt' + id).val();
-
-        $.ajax({
-            method: "POST",
-            url: "Submit",
-            data: { Status: chk, Comment: comment, MasterId: id }
-        }).done(function (msg) {
-            alert("Data Saved: " + msg);
-        }).error(function (msg) {
-            alert("Error while saving data");
-        });
-    }
-
-</script>
-@*<table class="table table-condensed table-striped">
-    <tr>
-        <th>FirstName</th>
-        <th>LastName</th>
-        <th>Email</th>
-        <th>Phone</th>
-        <th>URL</th>
-        <th>Location</th>
-        <th>CurrentJob</th>
-        <th>Company</th>
-        <th>Posted</th>
-        <th>SearchString</th>
-        <th>JobTitle</th>
-        <th>Status</th>
-        <th>Comment</th>
-        <th>Action</th>
-    </tr>
-@foreach (var item in Model)
-{
-    <tr>
-        <td>@item.FirstName</td>
-        <td>@item.LastName</td>
-        <td>@item.Email1</td>
-        <td>@item.PrimaryPhone</td>
-        <td>@item.Url</td>
-        <td>@item.Location</td>
-        <td>@item.CurrentJob</td>
-        <td>@item.Company</td>
-        <td>@item.Posted.Value.ToString("MM-dd-yyyy")</td>
-        <td>@item.SearchString</td>
-        <td>@item.JobTitle</td>
-        <td><input type="checkbox" id="@string.Format("chk{0}", @item.MasterID)" /> </td>
-        <td><textarea id="@string.Format("txt{0}", @item.MasterID)" class="form-control" rows="2" cols="15"></textarea>
-        </td>
-        <td><input type="button" value="Submit" class="btn btn-success" onclick="Submit(@item.MasterID)" /> </td>
-    </tr>
-}
-</table>*@
+<script src="~/Content/jquery-ui/jquery-ui.min.js"></script>
+<link href="~/Content/jquery-ui/themes/flick/jquery-ui.min.css" rel="stylesheet" />
 <div class="col-md-12">&nbsp;</div>
 
-        <div class="col-md-4">
+        <div class="col-md-3">
             <strong style="font-size:15px;"> @Model.Item1 </strong>
         </div>
-        <div class="col-md-6">
-           <strong  style="font-size:15px;text-decoration:underline"> @Model.Item2  </strong>
+        <div class="col-md-9">
+           <div class="col-md-8"><strong  style="font-size:15px;text-decoration:underline"> @Model.Item2  </strong></div>
+           <div class="col-md-4">
+               @*<div class='@if(Model.Item3==""){ 
+                               @:show
+                           }
+                           else{ 
+                               @:hidden 
+                           }' >*@
+                   <div class="col-md-6">
+                       <select id="searchkeyrating" class="form-control">
+                           <option>-</option>
+                           @for (int i = 0; i < 6; i++)
+                           {
+                               <option value="@i"
+                                  @if(Model.Item3==i.ToString()){
+                                      @:Selected
+                                  }>
+                                      @i</option>
+                           }
+                       </select>
+                   </div>
+                   <div class="col-md-6">
+                       <button onclick="SaveRating()" class="btn btn-default col-md-6">Rate</button>
+                   </div>
+               @*</div>*@
+           </div>
         </div>
 <div class="col-md-12">&nbsp;</div>
 
         <div id="jqxgrid"></div>
-
+        <div id="succuessdialog" title="Info">The record is successfully stored.</div>
+        <div id="errordialog" title="Couldn't Stored">Something went wrong.</div>
         @section userscript {
+
+            $("#succuessdialog").dialog({ autoOpen: false, modal: true });
+            $("#errordialog").dialog({ autoOpen: false, modal: true });
+
+            $('.ui-dialog-titlebar-close').html('<span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span>');
+            $('.ui-dialog-titlebar-close').attr('class','ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close');
+            
+
+            function SaveRating(){
+            //Searchkeyrating
+                $.ajax({
+                method: "Post",
+                url: "./SaveSearchRating",
+                data : { DateKey :"@Model.Item1", SearchKey: "@Model.Item2", Rating: $('#searchkeyrating option:selected').val()  }
+                }).done(function (msg) {
+               $( "#succuessdialog" ).dialog("open");
+            $('.ui-widget-overlay.ui-front').attr('style','z-index:800');
+            //$('.ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-front').attr('style','z-index:801');
+            $('div[aria-labelledby="ui-id-1"]').css('z-index','801');
+                }).error(function (msg) {
+                   $( "#errordialog" ).dialog("open");
+                });
+            }
+
+            //GridFilling
             $.ajax({
             method: "Get",
             url: "./GetData",
             data : { Date :  "@Model.Item1", SearchString: "@Model.Item2" }
-        }).done(function (msg) {
-            gridShow(msg);
-        }).error(function (msg) {
-            alert(JSON.stringify(msg));
-        });
+            }).done(function (msg) {
+                gridShow(msg);
+            }).error(function (msg) {
+                alert(JSON.stringify(msg));
+            });
             var src = [
             { id:"1", value : "Submitted" },
             {id :"2", value: "Connected" },
@@ -88,6 +86,7 @@
             ];
 
             var ratingsrc = [
+                { id:"0", value : "0" },
                 { id:"1", value : "1" },
                 {id :"2", value: "2" },
                 {id : "3", value: "3" },
@@ -241,16 +240,20 @@
             };
 
                 $.ajax({
-                method: "Get",
+                method: "Post",
                 url: "./SaveMasterListReviews",
                 data : masterData
                 }).done(function (msg) {
-                    gridShow(msg);
+                    $( "#succuessdialog" ).dialog("open");
+            $('.ui-widget-overlay.ui-front').attr('style','z-index:800');
+            //$('.ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-front').attr('style','z-index:801');
+            $('div[aria-labelledby="ui-id-1"]').css('z-index','801');
+                    //gridShow(msg);
                 }).error(function (msg) {
-                    alert(JSON.stringify(msg));
+                    $( "#errordialog" ).dialog("open");
                 });
                 
-             }
-
+             }     
+        
 }
         
