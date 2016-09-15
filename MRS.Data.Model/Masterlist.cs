@@ -96,7 +96,8 @@ namespace MRS.Data.Model
         public Nullable<int> statusid { get; set; }
         public string comment { get; set; }
         public Nullable<int> UserId { get; set; }
-        public Nullable<int> Rating { get; set; }
         public Nullable<int> IsNewRow { get; set; }
+        public Nullable<int> CompanyID { get; set; }
+        public string SocialLink { get; set; }
     }
 }

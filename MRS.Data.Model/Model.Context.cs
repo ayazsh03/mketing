@@ -28,8 +28,8 @@ namespace MRS.Data.Model
         }
     
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<MasterList> MasterLists { get; set; }
         public virtual DbSet<MasterSkillRating> MasterSkillRatings { get; set; }
+        public virtual DbSet<MasterList> MasterLists { get; set; }
     
         public virtual ObjectResult<string> GetSearchString(string date)
         {
@@ -109,19 +109,6 @@ namespace MRS.Data.Model
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("usp_GetInfoNewRecordsAdded", dateParameter, reqTypeParameter);
         }
     
-        public virtual ObjectResult<usp_GetInfoTotalResumesSubmitted_Result1> usp_GetInfoTotalResumesSubmitted(string date, Nullable<int> reqType)
-        {
-            var dateParameter = date != null ?
-                new ObjectParameter("date", date) :
-                new ObjectParameter("date", typeof(string));
-    
-            var reqTypeParameter = reqType.HasValue ?
-                new ObjectParameter("ReqType", reqType) :
-                new ObjectParameter("ReqType", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_GetInfoTotalResumesSubmitted_Result1>("usp_GetInfoTotalResumesSubmitted", dateParameter, reqTypeParameter);
-        }
-    
         public virtual int usp_UpdateSkillsRating(Nullable<int> statusid, string comment, Nullable<int> rating, Nullable<int> masterID, string searchKey, string datekey, Nullable<int> userid)
         {
             var statusidParameter = statusid.HasValue ?
@@ -153,6 +140,193 @@ namespace MRS.Data.Model
                 new ObjectParameter("userid", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_UpdateSkillsRating", statusidParameter, commentParameter, ratingParameter, masterIDParameter, searchKeyParameter, datekeyParameter, useridParameter);
+        }
+    
+        public virtual ObjectResult<usp_GetStatusInfoByUserId_Result> usp_GetStatusInfoByUserId(string date, Nullable<int> reqType, Nullable<int> userId)
+        {
+            var dateParameter = date != null ?
+                new ObjectParameter("date", date) :
+                new ObjectParameter("date", typeof(string));
+    
+            var reqTypeParameter = reqType.HasValue ?
+                new ObjectParameter("ReqType", reqType) :
+                new ObjectParameter("ReqType", typeof(int));
+    
+            var userIdParameter = userId.HasValue ?
+                new ObjectParameter("UserId", userId) :
+                new ObjectParameter("UserId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_GetStatusInfoByUserId_Result>("usp_GetStatusInfoByUserId", dateParameter, reqTypeParameter, userIdParameter);
+        }
+    
+        public virtual ObjectResult<usp_GetInfoTotalResumesSubmitted_Result3> usp_GetInfoTotalResumesSubmitted(string date, Nullable<int> reqType)
+        {
+            var dateParameter = date != null ?
+                new ObjectParameter("date", date) :
+                new ObjectParameter("date", typeof(string));
+    
+            var reqTypeParameter = reqType.HasValue ?
+                new ObjectParameter("ReqType", reqType) :
+                new ObjectParameter("ReqType", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_GetInfoTotalResumesSubmitted_Result3>("usp_GetInfoTotalResumesSubmitted", dateParameter, reqTypeParameter);
+        }
+    
+        public virtual ObjectResult<usp_GetAllFileDetails_Result> usp_GetAllFileDetails()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_GetAllFileDetails_Result>("usp_GetAllFileDetails");
+        }
+    
+        public virtual ObjectResult<usp_GetAllCompany_Result> usp_GetAllCompany()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_GetAllCompany_Result>("usp_GetAllCompany");
+        }
+    
+        public virtual ObjectResult<usp_GetOpportuntiesOnCompany_Result> usp_GetOpportuntiesOnCompany(Nullable<int> companyID)
+        {
+            var companyIDParameter = companyID.HasValue ?
+                new ObjectParameter("CompanyID", companyID) :
+                new ObjectParameter("CompanyID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_GetOpportuntiesOnCompany_Result>("usp_GetOpportuntiesOnCompany", companyIDParameter);
+        }
+    
+        public virtual ObjectResult<usp_GetWeeklyReportInfo_Result1> usp_GetWeeklyReportInfo(string date)
+        {
+            var dateParameter = date != null ?
+                new ObjectParameter("date", date) :
+                new ObjectParameter("date", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_GetWeeklyReportInfo_Result1>("usp_GetWeeklyReportInfo", dateParameter);
+        }
+    
+        public virtual ObjectResult<usp_GetSearchStringAndRating_Result> usp_GetSearchStringAndRating(string date)
+        {
+            var dateParameter = date != null ?
+                new ObjectParameter("date", date) :
+                new ObjectParameter("date", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_GetSearchStringAndRating_Result>("usp_GetSearchStringAndRating", dateParameter);
+        }
+    
+        public virtual ObjectResult<usp_GetOpportunityByDate_Result> usp_GetOpportunityByDate(string date, string searchKey)
+        {
+            var dateParameter = date != null ?
+                new ObjectParameter("date", date) :
+                new ObjectParameter("date", typeof(string));
+    
+            var searchKeyParameter = searchKey != null ?
+                new ObjectParameter("searchKey", searchKey) :
+                new ObjectParameter("searchKey", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_GetOpportunityByDate_Result>("usp_GetOpportunityByDate", dateParameter, searchKeyParameter);
+        }
+    
+        public virtual ObjectResult<usp_GetNewRecordsInfoByImportedSource_Result> usp_GetNewRecordsInfoByImportedSource(string date)
+        {
+            var dateParameter = date != null ?
+                new ObjectParameter("date", date) :
+                new ObjectParameter("date", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_GetNewRecordsInfoByImportedSource_Result>("usp_GetNewRecordsInfoByImportedSource", dateParameter);
+        }
+    
+        public virtual ObjectResult<usp_GetWeeklyRecordSummary_Result> usp_GetWeeklyRecordSummary(string date)
+        {
+            var dateParameter = date != null ?
+                new ObjectParameter("date", date) :
+                new ObjectParameter("date", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_GetWeeklyRecordSummary_Result>("usp_GetWeeklyRecordSummary", dateParameter);
+        }
+    
+        public virtual ObjectResult<usp_GetWeeklyFileImportSummary_Result> usp_GetWeeklyFileImportSummary(string date)
+        {
+            var dateParameter = date != null ?
+                new ObjectParameter("date", date) :
+                new ObjectParameter("date", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_GetWeeklyFileImportSummary_Result>("usp_GetWeeklyFileImportSummary", dateParameter);
+        }
+    
+        public virtual ObjectResult<usp_GetWeeklyOpportunitySummary_Result> usp_GetWeeklyOpportunitySummary(string date)
+        {
+            var dateParameter = date != null ?
+                new ObjectParameter("date", date) :
+                new ObjectParameter("date", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_GetWeeklyOpportunitySummary_Result>("usp_GetWeeklyOpportunitySummary", dateParameter);
+        }
+    
+        public virtual ObjectResult<string> usp_GetOpportunitySearchStringByDate(string date)
+        {
+            var dateParameter = date != null ?
+                new ObjectParameter("date", date) :
+                new ObjectParameter("date", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("usp_GetOpportunitySearchStringByDate", dateParameter);
+        }
+    
+        public virtual ObjectResult<GetDataFromToDateAndSearchKey_Result> GetDataFromToDateAndSearchKey(string fromdate, string todate, string search)
+        {
+            var fromdateParameter = fromdate != null ?
+                new ObjectParameter("Fromdate", fromdate) :
+                new ObjectParameter("Fromdate", typeof(string));
+    
+            var todateParameter = todate != null ?
+                new ObjectParameter("Todate", todate) :
+                new ObjectParameter("Todate", typeof(string));
+    
+            var searchParameter = search != null ?
+                new ObjectParameter("search", search) :
+                new ObjectParameter("search", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetDataFromToDateAndSearchKey_Result>("GetDataFromToDateAndSearchKey", fromdateParameter, todateParameter, searchParameter);
+        }
+    
+        public virtual int usp_EditMasterDate(Nullable<int> masterID, string firstName, string lastName, string email1, string primaryPhone, string url, string location, string currentJob, string company, string comment)
+        {
+            var masterIDParameter = masterID.HasValue ?
+                new ObjectParameter("MasterID", masterID) :
+                new ObjectParameter("MasterID", typeof(int));
+    
+            var firstNameParameter = firstName != null ?
+                new ObjectParameter("FirstName", firstName) :
+                new ObjectParameter("FirstName", typeof(string));
+    
+            var lastNameParameter = lastName != null ?
+                new ObjectParameter("LastName", lastName) :
+                new ObjectParameter("LastName", typeof(string));
+    
+            var email1Parameter = email1 != null ?
+                new ObjectParameter("Email1", email1) :
+                new ObjectParameter("Email1", typeof(string));
+    
+            var primaryPhoneParameter = primaryPhone != null ?
+                new ObjectParameter("PrimaryPhone", primaryPhone) :
+                new ObjectParameter("PrimaryPhone", typeof(string));
+    
+            var urlParameter = url != null ?
+                new ObjectParameter("Url", url) :
+                new ObjectParameter("Url", typeof(string));
+    
+            var locationParameter = location != null ?
+                new ObjectParameter("Location", location) :
+                new ObjectParameter("Location", typeof(string));
+    
+            var currentJobParameter = currentJob != null ?
+                new ObjectParameter("CurrentJob", currentJob) :
+                new ObjectParameter("CurrentJob", typeof(string));
+    
+            var companyParameter = company != null ?
+                new ObjectParameter("Company", company) :
+                new ObjectParameter("Company", typeof(string));
+    
+            var commentParameter = comment != null ?
+                new ObjectParameter("Comment", comment) :
+                new ObjectParameter("Comment", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_EditMasterDate", masterIDParameter, firstNameParameter, lastNameParameter, email1Parameter, primaryPhoneParameter, urlParameter, locationParameter, currentJobParameter, companyParameter, commentParameter);
         }
     }
 }

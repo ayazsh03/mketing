@@ -6,8 +6,8 @@
     <edmx:Diagrams>
       <Diagram DiagramId="4f041a65c3a54367815362121cbd0387" Name="Diagram1" ZoomLevel="88">
         <EntityTypeShape EntityType="MarketingV2Model.User" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MarketingV2Model.MasterList" Width="1.5" PointX="0.625" PointY="3.875" />
         <EntityTypeShape EntityType="MarketingV2Model.MasterSkillRating" Width="1.5" PointX="4.25" PointY="5.125" />
+        <EntityTypeShape EntityType="MarketingV2Model.MasterList" Width="1.5" PointX="0.75" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
