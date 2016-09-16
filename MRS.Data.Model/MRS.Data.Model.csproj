@@ -50,6 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonModel.cs" />
+    <Compile Include="GetDataFromToDateAndSearchKey_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="GetDataOnDateAndSearchKey_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -84,15 +87,56 @@
     <Compile Include="usp_GetActelRecordsINof_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="usp_GetAllCompany_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_GetAllFileDetails_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="usp_GetInfoTotalResumesSubmitted_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="usp_GetInfoTotalResumesSubmitted_Result1.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="usp_GetInfoTotalResumesSubmitted_Result2.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_GetInfoTotalResumesSubmitted_Result3.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_GetNewRecordsInfoByImportedSource_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_GetOpportunityByDate_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_GetOpportuntiesOnCompany_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_GetSearchStringAndRating_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_GetStatusInfoByUserId_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_GetWeeklyFileImportSummary_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_GetWeeklyOpportunitySummary_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_GetWeeklyRecordSummary_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_GetWeeklyReportInfo_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_GetWeeklyReportInfo_Result1.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <EntityDeploy Include="Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model.Designer.cs</LastGenOutput>
