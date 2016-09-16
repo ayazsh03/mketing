@@ -25,6 +25,10 @@ namespace MarketingReportingSystem.Models
         {
             public string Date { get; set; }
             public string SearchString { get; set; }
+
+            public string fromdate { get; set; }
+            public string todate { get; set; }
+            public int ReqType { get; set; } 
         }
 
         public class SubmitterConsultant
@@ -50,6 +54,21 @@ namespace MarketingReportingSystem.Models
             Submitted=1,
             Connected,
             Called
+        }
+
+
+        public class MasterData
+        {
+            public int MasterID { get; set; }
+            public string FirstName { get; set; }
+            public string LastName { get; set; }
+            public string Email1 { get; set; }
+            public string PrimaryPhone { get; set; }
+            public string Url { get; set; }
+            public string Location { get; set; }
+            public string CurrentJob { get; set; }
+            public string Company { get; set; }
+            public string comment { get; set; }
         }
     }
 }

@@ -17,12 +17,26 @@ namespace MarketingReportingSystem.Controllers
         {
             //var list = me.Masterlists.Where(x => x.IsSentToAccountMgr == false).ToList();
             //return View(list);
-            var obj = Tuple.Create<string, string,string>(
+            var obj = new string[] { 
                 TempData["Date"]==null?"": TempData["Date"].ToString(),
                 TempData["SearchKey"] == null ? "" : TempData["SearchKey"].ToString(),
-                TempData["SearchKeyRating"] == null ? "" : TempData["SearchKeyRating"].ToString()
-                );
+                TempData["SearchKeyRating"] == null ? "" : TempData["SearchKeyRating"].ToString(),
+                TempData["FromDate"] == null ? "" : TempData["FromDate"].ToString(),
+                TempData["ToDate"] == null ? "" : TempData["ToDate"].ToString(),
+                TempData["ReqType"] == null ? "" : TempData["ReqType"].ToString()
+                };
             return View(obj);
+        }
+
+        public JsonResult SaveRecords(ViewModels.MasterData mrc)
+        {
+            
+              me.usp_EditMasterDate(mrc.MasterID,mrc.FirstName,mrc.LastName,mrc.Email1,mrc.PrimaryPhone,mrc.Url,mrc.Location,mrc.CurrentJob,mrc.Company,mrc.comment);
+              var  jsonResult = Json("Success", JsonRequestBehavior.AllowGet);
+            
+
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
 
         public JsonResult GetData(MarketingReportingSystem.Models.ViewModels.Selection sc)
@@ -35,8 +49,18 @@ namespace MarketingReportingSystem.Controllers
 
             var datedata = sc.Date == null ? "" : sc.Date;
             var searchdata = sc.SearchString == null ? "" : HttpUtility.HtmlDecode(sc.SearchString);
-            var dlist = me.GetDataOnDateAndSearchKey(datedata, searchdata).ToList(); 
-            JsonResult jsonResult = Json(dlist, JsonRequestBehavior.AllowGet);
+            JsonResult jsonResult;
+            if (sc.ReqType==1)
+            {
+                var dlist = me.GetDataFromToDateAndSearchKey(sc.fromdate,sc.todate, sc.SearchString);
+                jsonResult = Json(dlist, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                var dlist = me.GetDataOnDateAndSearchKey(datedata, searchdata).ToList();
+                jsonResult = Json(dlist, JsonRequestBehavior.AllowGet);
+            }
+             
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
         }
@@ -108,7 +132,7 @@ namespace MarketingReportingSystem.Controllers
                 //    me.SaveChanges();
                 //}
 
-                me.usp_UpdateSkillsRating(sc.statusid, sc.Comment, sc.Rating, sc.MasterID, sc.SearchKey, sc.Date, int.Parse(ticket.Name.Substring(0, ticket.Name.IndexOf(";"))));
+                me.usp_UpdateSkillsRating(sc.statusid, sc.Comment, sc.Rating, sc.MasterID, HttpUtility.HtmlDecode(sc.SearchKey), sc.Date, int.Parse(ticket.Name.Substring(0, ticket.Name.IndexOf(";"))));
 
 
                 isFlag = true;
@@ -182,6 +206,9 @@ namespace MarketingReportingSystem.Controllers
         {
             TempData["Date"] = sc.Date;
             TempData["SearchKey"] = sc.SearchString;
+            TempData["FromDate"] = sc.fromdate;
+            TempData["ToDate"] = sc.todate;
+            TempData["ReqType"] = sc.ReqType;
             TempData["SearchKeyRating"] = me.usp_UpdateOrGetSearchKeyRating(sc.Date, sc.SearchString, null, null, true).FirstOrDefault();
             return Redirect("index");
         }

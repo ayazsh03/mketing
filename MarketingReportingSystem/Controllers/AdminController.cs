@@ -12,6 +12,10 @@ namespace MarketingReportingSystem.Controllers
         //
         // GET: /Admin/
         private MRS.Data.Model.Entities me = new MRS.Data.Model.Entities();
+
+        #region ActionResult
+
+        
         [HttpGet]
         public ActionResult Index()
         {
@@ -33,6 +37,11 @@ namespace MarketingReportingSystem.Controllers
             var v9 = me.usp_GetInfoNewRecordsAdded(flist, 1).FirstOrDefault();
             var v10 = me.usp_GetInfoTotalResumesSubmitted(flist, int.Parse(reqType)).ToList();
 
+            //Weekly Report
+            var v11 = me.usp_GetWeeklyReportInfo(flist).OrderBy(x => x.Name).ToList();
+            var v12 = me.usp_GetWeeklyRecordSummary(flist).ToList();
+            var v13 = me.usp_GetWeeklyFileImportSummary(flist).ToList();
+
 
             var obj = new AdminViewModel.IndexItems
             {
@@ -48,7 +57,10 @@ namespace MarketingReportingSystem.Controllers
                 TotalMasterList = v7,
                 TotalNoEmailMasterList = v8,
                 ResumesSubmitted = v10,
-                ResumeActionType = reqType
+                ResumeActionType = reqType,
+                weeklyReports = v11,
+                recordSummary = v12,
+                fileimport = v13
             };
             return View(obj);
         }
@@ -68,6 +80,70 @@ namespace MarketingReportingSystem.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult GetOpportunityDashBoard()
+        {
+            return View();
+        }
 
+        #endregion
+
+
+        #region JSON Results
+
+        [HttpPost]
+        public JsonResult GetCandidateDetail(int userid, string date, int reqType)
+        {
+            var list = me.usp_GetStatusInfoByUserId(date, reqType, userid).ToList();
+            return Json(list, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetAllFilesDetail()
+        {
+            var list = me.usp_GetAllFileDetails().ToList();
+            return Json(list, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetOppotunities(int CompanyId)
+        {
+            var list = me.usp_GetOpportuntiesOnCompany(CompanyId).ToList();
+            return Json(list, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetAllCompanies()
+        {
+            var list = me.usp_GetAllCompany().ToList();
+            return Json(list, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetSearchStringAndRating()
+        {
+            var list = me.usp_GetSearchStringAndRating(null).ToList();
+            return Json(list, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetOpportunityByDate(string date, string searchkey)
+        {
+            var list = me.usp_GetOpportunityByDate(date,searchkey).ToList();
+            return Json(list, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetOpportunitySearchStringByDate(string date)
+        {
+            var list = me.usp_GetOpportunitySearchStringByDate(date).ToList();
+            return Json(list, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetNewRecordsInfoByImportedSource(string date)
+        {
+            var list = me.usp_GetNewRecordsInfoByImportedSource(date).ToList();
+            return Json(list, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetOpportunityWeeklyReport(string date)
+        {
+            var list = me.usp_GetWeeklyOpportunitySummary(date).ToList();
+            return Json(list, JsonRequestBehavior.AllowGet);
+        }
+        #endregion
     }
 }

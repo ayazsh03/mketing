@@ -4,25 +4,99 @@
     ViewBag.Title = "DateAndSearch";
 }
 
-<h2>DateAndSearch</h2>
+<script src="~/Content/jqwidgets/jqwidgets/jqx-all.js"></script>
+<link href="~/Content/jqwidgets/jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+<script src="~/Content/jquery-ui/jquery-ui.min.js"></script>
+<link href="~/Content/jquery-ui/themes/flick/jquery-ui.min.css" rel="stylesheet" />
+<div class="col-md-12">&nbsp;</div>
+<div class="col-md-12">
+    <fieldset>
+        <legend>Search by Date</legend>
+        <div class="col-md-4">
 
-<div class="col-md-6">
+
+            @using (Html.BeginForm("DateSelection", "Home", null, FormMethod.Post, new { id = "dateSelect" }))
+            {
+
+                @:Select Date : <div id='jqxcalendar' class="form-control"></div>
 
 
-@using (Html.BeginForm("DateSelection","Home","POST"))
-{
 
-@:Select Date : @Html.Action("ComboDate")
 
-}
 
+
+
+
+            }
+
+        </div>
+        <div class="col-md-8">
+            @using (Html.BeginForm("SearchStringSelection", "Home", "POST"))
+            {
+                <input type="hidden" name="Date" value="@Model.ToString()" />
+                @: Select SearchString:  @Html.Action("ComboSearchString")
+
+
+
+
+
+
+
+
+            }
+
+        </div>
+    </fieldset>
 </div>
-<div class="col-md-6">
-@using (Html.BeginForm("SearchStringSelection","Home","POST"))
+<div class="col-md-12">&nbsp;</div>
+<div class="col-md-12">
+    <fieldset>
+        <legend>Search By Key</legend>
+@using (Html.BeginForm("SearchStringSelection", "Home", "POST"))
 {
-    <input type="hidden" name="Date" value="@Model.ToString()" />
-@: Select SearchString:  @Html.Action("ComboSearchString")
-  
-}
+        <div class="panel panel-success">
+            <div class="panel-body">
+                <div class="col-md-6">
+                    <div class="col-md-4">From Date</div>
+                    <div class="col-md-8"><div id='jqxcalendarFrom' class="form-control"></div></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-4">To Date</div>
+                    <div class="col-md-8"><div id='jqxcalendarTo' class="form-control"></div></div>
+                    <input type="hidden" value="1" name="ReqType"/>
+                </div>
+                <div class="col-md-12">&nbsp;</div>
+                <div class="col-md-12">
+                    <div class="col-md-2">&nbsp;</div>
+                    <div class="col-md-6"><input type="text" name="SearchString" class="form-control" id="txtSearch" placeholder="Search" /> </div>
+                    <div class="col-md-2"><input type="submit" class="btn btn-success"  value="Search" /> </div>
+                </div>
 
+            </div>
+        </div>
+}
+    </fieldset>
 </div>
+
+        <script>
+            $("#jqxcalendar").jqxDateTimeInput({ height: '16px', animationType: 'slide', formatString: "MM-dd-yyyy", value: new Date('@Model.ToString()') });
+            $('.jqx-icon.jqx-icon-calendar').parent().css("width", "50px");
+            $('#inputjqxcalendar').attr("name", "date");
+            $('#inputjqxcalendar').addClass("form-control");
+            $('#jqxcalendar').on('valueChanged', function (event) {
+                $('#dateSelect').submit();
+});
+
+            $("#jqxcalendarFrom").jqxDateTimeInput({ height: '16px', animationType: 'slide', formatString: "MM-dd-yyyy" });
+            $('.jqx-icon.jqx-icon-calendar').parent().css("width", "50px");
+            $("#jqxcalendarFrom input").attr("name", "fromdate");
+            $('#jqxcalendarFrom').on('valueChanged', function (event) {
+    //$('#dateSelect').submit();
+});
+            $("#jqxcalendarTo").jqxDateTimeInput({ height: '16px', animationType: 'slide', formatString: "MM-dd-yyyy" });
+            $('.jqx-icon.jqx-icon-calendar').parent().css("width", "50px");
+            $("#jqxcalendarTo input").attr("name", "todate");
+            $('#jqxcalendarTo').on('valueChanged', function (event) {
+    //$('#dateSelect').submit();
+});
+        </script>
